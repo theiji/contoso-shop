@@ -35,7 +35,7 @@ namespace Contoso.Shop.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 }
