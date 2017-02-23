@@ -4,6 +4,7 @@ using Contoso.Shop.Model.Catalog.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace Contoso.Shop.Infra.Catalog.Repositories
 {
@@ -19,6 +20,13 @@ namespace Contoso.Shop.Infra.Catalog.Repositories
         public async Task<IEnumerable<Product>> GetAll()
         {
             return await dataContext.Products.ToListAsync();
+        }
+
+        public Task Insert(Product product)
+        {
+            dataContext.Products.Add(product);
+
+            return dataContext.SaveChangesAsync();
         }
     }
 }
