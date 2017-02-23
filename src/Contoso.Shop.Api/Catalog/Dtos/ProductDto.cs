@@ -9,7 +9,6 @@ namespace Contoso.Shop.Api.Catalog.Dtos
         public string Description { get; set; }
         public decimal Price { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
-        public DateTimeOffset? ModifiedAt { get; set; }
         public int DepartamentId { get; set; }
     }
 }
