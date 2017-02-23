@@ -2,6 +2,8 @@
 using Contoso.Shop.Model.Catalog.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Contoso.Shop.Model.Catalog;
+using System;
 
 namespace Contoso.Shop.Api.Catalog
 {
@@ -38,7 +40,19 @@ namespace Contoso.Shop.Api.Catalog
 
             var product = await productService.Create(dto);
 
-            return Ok(product);
+            return Ok(MapToDto(product));
+        }
+
+        private ProductDto MapToDto(Product product)
+        {
+            return new ProductDto()
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                DepartamentId = product.DepartamentId
+            };
         }
     }
 }
