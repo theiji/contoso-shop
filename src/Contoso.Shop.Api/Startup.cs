@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 using Contoso.Shop.Model.Catalog.Services;
 using Contoso.Shop.Model.Catalog.Repositories;
 using Contoso.Shop.Infra.Catalog.Repositories;
+using Contoso.Shop.Infra.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace Contoso.Shop.Api
 {
@@ -12,6 +14,12 @@ namespace Contoso.Shop.Api
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ShopDbContext>(options =>
+            {
+                options.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=contoso-shop;" +
+                    "Integrated Security=True", b => b.MigrationsAssembly("Contoso.Shop.Api"));
+            });
+
             services.AddMvc();
 
             services.AddSingleton<IProductService, ProductService>();
@@ -27,7 +35,7 @@ namespace Contoso.Shop.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 }
