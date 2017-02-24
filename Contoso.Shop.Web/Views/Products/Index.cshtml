@@ -1,0 +1,29 @@
+@model ListProductsViewModel
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>theiji</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Lista de Produtos</div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Pre&ccedil;o</th>
+                <th>Data Cria&ccedil;&atilde;o</th>
+            </tr>
+        </thead>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CreatedAt</td>
+            </tr>
+        }
+    </table>
+</div>
