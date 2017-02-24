@@ -3,10 +3,17 @@
     ViewBag.Title = "Produtos";
 }
 
-<h2>theiji</h2>
-
 <div class="panel panel-primary">
     <div class="panel-heading">Lista de Produtos</div>
+    <div class="panel-body">
+        <form class="form-inline" asp-controller="Products" asp-action="index" method="post">
+            <div class="form-group">
+                <label asp-for="Keywords"></label>
+                <input asp-for="Keywords" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-default">OK</button>
+        </form>
+    </div>
     <table class="table table-bordered table-condensed">
         <thead>
             <tr>

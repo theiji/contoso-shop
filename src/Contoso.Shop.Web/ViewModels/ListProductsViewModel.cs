@@ -12,5 +12,6 @@ namespace Contoso.Shop.Web.ViewModels
         }
 
         public IEnumerable<Product> Products { get; set; }
+        public string Keywords { get; set; }
     }
 }
