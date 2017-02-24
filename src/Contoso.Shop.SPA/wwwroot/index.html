@@ -9,27 +9,47 @@
 <body>
     <div class="container">
         <h1>Contoso Shop</h1>
-
         <div class="panel panel-primary" ng-controller="createProductController as vm">
             <div class="panel-heading">Criar Produto</div>
             <div class="panel-body">
                 <form ng-submit="vm.save()">
                     <div class="form-group">
                         <label for="name">Nome</label>
-                        <input type="text" class="form-control" id="name" ng-model="vm.form.name" />
+                        <input type="text" class="form-control" id="name" placeholder="Nome" ng-model="vm.form.name">
                     </div>
                     <div class="form-group">
-                        <label for="desciption">Descri&ccedil;&atilde;o</label>
-                        <input type="text" class="form-control" id="desciption" ng-model="vm.form.desciption"  />
+                        <label for="description">Descri&ccedil;&atilde;o</label>
+                        <input type="text" class="form-control" id="description" placeholder="Descri&ccedil;&atilde;o" ng-model="vm.form.description">
                     </div>
                     <div class="form-group">
                         <label for="price">Pre&ccedil;o</label>
-                        <input type="text" class="form-control" id="price" ng-model="vm.form.price"  />
+                        <input type="text" class="form-control" id="price" placeholder="Pre&ccedil;o" ng-model="vm.form.price">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
             </div>
+        </div>
+
+        <div class="panel panel-primary" ng-controller="listProductsController as vm">
+            <div class="panel-heading">Lista de Produtos</div>
+            <div class="panel-body">
+                <a class="btn btn-success" ng-click="vm.load()">Atualizar</a>
+            </div>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Pre&ccedil;o</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="product in vm.products">
+                    <td ng-bind="product.id"></td>
+                    <td ng-bind="product.name"></td>
+                    <td ng-bind="product.price"></td>
+                </tr>
+            </table>
         </div>
     </div>
 

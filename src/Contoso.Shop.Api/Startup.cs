@@ -22,6 +22,8 @@ namespace Contoso.Shop.Api
 
             services.AddMvc();
 
+            services.AddCors();
+
             services.AddSingleton<IProductService, ProductService>();
             services.AddSingleton<IProductRepository, ProductRepository>();
         }
@@ -34,6 +36,11 @@ namespace Contoso.Shop.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(x => x.AllowAnyHeader().
+                               AllowAnyMethod().
+                               AllowAnyOrigin().
+                               AllowCredentials());
 
             app.UseMvc();
         }
