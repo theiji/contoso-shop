@@ -48,13 +48,15 @@ function createProductController($http)
 
     function showError(response)
     {
-        console.error(reponse);
+        console.error(response);
+
         window.alert('Falha');
     }
 
     function showSuccess()
     {
         vm.form = {};
+
         window.alert('Sucesso');
     }
 }

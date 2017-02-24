@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <Content Include="wwwroot\app\app.js" />
+    <Content Include="wwwroot\app\catalog\createProduct.controller.js" />
+    <Content Include="wwwroot\app\catalog\listProduct.controller.js" />
+    <Content Include="wwwroot\app\catalog\views\createProduct.html" />
+    <Content Include="wwwroot\app\catalog\views\listProduct.html" />
     <Content Include="wwwroot\index.html" />
   </ItemGroup>
   <ItemGroup>
